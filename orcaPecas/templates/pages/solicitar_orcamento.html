@@ -1,11 +1,58 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <title>Orça Peças</title>
 </head>
 <body>
-    
+    <form  method="POST"> {% csrf_token %}
+        <input type="text" name="nome" placeholder="Nome do Cliente">
+        <!-- <select name="categoria" id="">
+            <option disabled selected>---</option>
+            {% for categoria in categorias %}
+            <option value="{{categoria.id}}">{{categoria.nome}}</option>
+            {% endfor %}
+        </select> -->
+        <input type="text" name="modelo" placeholder="Modelo do Carro">
+        <textarea name="sinistro" placeholder="Sinistro" id="" cols="30" rows="10"></textarea>
+        <input type="text" name="oficina" placeholder="Oficina de Entrega">
+        <input type="text" name="endereco" placeholder="Endereço da Oficina">
+        <input type="text" name="placa" placeholder="Placa">
+        <ul>
+            <li><input type="text" name="peca" placeholder="Peça"></li>
+            <li><input type="number" name="quantidade" placeholder="Quantidade"></li>
+            <li><button>Adicionar</button></li>
+        </ul>
+        <table>
+
+            <!-- {% if produtos %} -->
+            <thead>
+              <th>Peça</th>
+              <th>Quantidade</th>
+            </thead>
+            <!-- {% else %}
+              <h1>Nenhum produto Cadastrado.</h1>
+            {% endif %} -->
+      
+      
+            <tbody>
+              <!-- {% for produto in produtos %}
+              <tr>
+                <td>
+                    <a href="{% url 'produto' produto.id %}">{{produto.nome}}</a>
+                </td>
+                <td>{{produto.categoria}}</td>
+                <td>{{produto.preço}}</td>
+                <td>{{produto.quantidade}}</td>
+                <td>{{produto.codigo}}</td>
+              </tr>
+              {% endfor %} -->
+            </tbody>
+          </table>
+        <button type="submit">Cadastrar</button>
+    </form>
 </body>
 </html>

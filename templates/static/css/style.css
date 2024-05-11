@@ -1,0 +1,21 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap'); */
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: blue;
+}
+
+ul{
+    display: flex;
+    gap: 50px;
+    font-size: 20px;
+}
+
+a{
+    color: white;
+    font-weight: bold;
+}
