@@ -14,6 +14,7 @@ def solicitar_orcamento(request):
     #     if int(quantidade) > 0:
     #         em_estoque = True
     #     data_criacao = datetime.now()
+          itens_orcamento = request.POST['teste'].json()
 
     #     Produtos.objects.create(
     #         nome=nome,
