@@ -1,58 +1,71 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <title>Orça Peças</title>
-</head>
-<body>
-    <form  method="POST"> {% csrf_token %}
-        <input type="text" name="nome" placeholder="Nome do Cliente">
-        <!-- <select name="categoria" id="">
-            <option disabled selected>---</option>
-            {% for categoria in categorias %}
-            <option value="{{categoria.id}}">{{categoria.nome}}</option>
-            {% endfor %}
-        </select> -->
-        <input type="text" name="modelo" placeholder="Modelo do Carro">
-        <textarea name="sinistro" placeholder="Sinistro" id="" cols="30" rows="10"></textarea>
-        <input type="text" name="oficina" placeholder="Oficina de Entrega">
-        <input type="text" name="endereco" placeholder="Endereço da Oficina">
-        <input type="text" name="placa" placeholder="Placa">
-        <ul>
-            <li><input type="text" name="peca" placeholder="Peça"></li>
-            <li><input type="number" name="quantidade" placeholder="Quantidade"></li>
-            <li><button>Adicionar</button></li>
-        </ul>
-        <table>
-
-            <!-- {% if produtos %} -->
-            <thead>
-              <th>Peça</th>
-              <th>Quantidade</th>
-            </thead>
-            <!-- {% else %}
-              <h1>Nenhum produto Cadastrado.</h1>
-            {% endif %} -->
-      
-      
-            <tbody>
-              <!-- {% for produto in produtos %}
-              <tr>
-                <td>
-                    <a href="{% url 'produto' produto.id %}">{{produto.nome}}</a>
-                </td>
-                <td>{{produto.categoria}}</td>
-                <td>{{produto.preço}}</td>
-                <td>{{produto.quantidade}}</td>
-                <td>{{produto.codigo}}</td>
-              </tr>
-              {% endfor %} -->
-            </tbody>
-          </table>
-        <button type="submit">Cadastrar</button>
-    </form>
-</body>
+    <link rel="stylesheet" href="{% static 'css/solicitar_orcamento.css' %}" />
+    <title>Orça Peças - Pedir Orçamento</title>
+  </head>
+  <body>
+    <header>
+      <img src="{% static 'images/logoOrcaPecas.PNG' %}" alt="Logo" />
+      <span class="user-name">{{ user }}</span>
+    </header>
+    <main>
+      <div class="page-title-container">
+        <h1 class="page-title">Pedir Orçamento</h1>
+        <div class="breadcrumb">
+          <a href="{% url 'index' %}">Início</a> > <span>Pedir Orçamento</span>
+        </div>
+      </div>
+      <div class="form-container">
+        <h2>Pedido</h2>
+        <div class="form-section">
+          <label for="cliente">Cliente</label>
+          <input type="text" name="cliente" id="cliente" />
+          <label for="modelo">Modelo do Carro</label>
+          <input type="text" name="modelo" id="modelo" />
+          <label for="placa">Placa</label>
+          <input type="text" name="placa" id="placa" />
+        </div>
+        <div class="form-section oficina">
+          <label for="oficina">Oficina de Entrega</label>
+          <input type="text" name="oficina" id="oficina" />
+          <label for="endereco">Endereço da Oficina</label>
+          <input type="text" name="endereco" id="endereco" />
+        </div>
+        <div class="form-section">
+          <label for="sinistro">Sinistro</label>
+          <textarea name="sinistro" id="sinistro" cols="30" rows="5"></textarea>
+        </div>
+        <div class="form-section oficina">
+          <label for="peca">Peça</label>
+          <input type="text" name="peca" id="peca" />
+          <label for="quantidade">Quantidade</label>
+          <div class="quantity">
+            <input
+              type="number"
+              name="quantidade"
+              id="quantidade"
+              value="1"
+              min="1"
+            />
+            <button type="button" class="btn-add">Adicionar</button>
+          </div>
+        </div>
+      </div>
+      <div class="buttons">
+        <button
+          type="button"
+          class="btn-back"
+          onclick="history.back(), preventDefault()"
+        >
+          Voltar
+        </button>
+        <button type="submit" class="btn-save">Salvar</button>
+      </div>
+    </main>
+  </body>
 </html>

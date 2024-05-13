@@ -1,68 +1,30 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Orça Peças</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-</head>
-<body>
-  <header>
-    <label for="">{{user}}</label>
-    <nav class="navbar">
-      <!-- <ul class="nav-item">
-        <li class="nav-link"><a href="">Produtos</a></li>
-        <li class="nav-link"><a href="">Pedidos</a></li>
-        <li class="nav-link"><a href="">Relatórios</a></li>
-      </ul> -->
-    </nav>
-    <!-- <form action="">
-      <input type="text" />
-      <button>Buscar</button>
-    </form> -->
-
-  </header>
-  <main>
-
-    <ul class="nav-item">
-        <li class="nav-link"><a href="{% url 'solicitar-orcamento' %}">Pedir Orçamentos</a></li>
-        <li class="nav-link"><a href="">Orçados</a></li>
-        <li class="nav-link"><a href="">A imprimir</a></li>
-        <li class="nav-link"><a href="">Devolver</a></li>
-        <li class="nav-link"><a href="">Finalizados</a></li>
-    </ul> 
-
-
-    <!-- <table>
-
-      {% if produtos %}
-      <thead>
-        <th>Nome</th>
-        <th>Categoria</th>
-        <th>Preço</th>
-        <th>Quantidade</th>
-        <th>Código</th>
-      </thead>
-      {% else %}
-        <h1>Nenhum produto Cadastrado.</h1>
-      {% endif %}
-
-
-      <tbody>
-        {% for produto in produtos %}
-        <tr>
-          <td>
-              <a href="{% url 'produto' produto.id %}">{{produto.nome}}</a>
-          </td>
-          <td>{{produto.categoria}}</td>
-          <td>{{produto.preço}}</td>
-          <td>{{produto.quantidade}}</td>
-          <td>{{produto.codigo}}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table> -->
-  </main>
-</body>
+  </head>
+  <body>
+    <header>
+      <img src="{% static 'images/logoOrcaPecas.PNG' %}" alt="Logo" />
+      <span class="user-name">{{ user }}</span>
+    </header>
+    <main>
+      <div class="img-container">
+        <img src="{% static 'images/logoOrcaPecas.PNG' %}" alt="Logo" />
+      </div>
+      <div class="nav-container">
+        <a class="nav-link" href="{% url 'solicitar-orcamento' %}"
+          >Pedir Orçamentos</a
+        >
+        <a class="nav-link" href="#">Orçados</a>
+        <a class="nav-link" href="#">A imprimir</a>
+        <a class="nav-link" href="#">Devolver</a>
+        <a class="nav-link" href="#">Finalizados</a>
+      </div>
+    </main>
+  </body>
 </html>
