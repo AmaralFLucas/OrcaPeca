@@ -2,9 +2,13 @@ from django.shortcuts import render, redirect
 from .models import Orcamento
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 def index(request):
-    return render(request, 'pages/index.html')
+    if (request.user.is_superuser):
+        return render(request, 'pages/index.html')
+    elif (request.user.is_staff):
+        return render(request, 'pages/index2.html')
 
 def solicitar_orcamento(request):
     if request.method == "POST":
@@ -37,3 +41,6 @@ def solicitar_orcamento(request):
     
     else:
         return render(request, 'pages/solicitar_orcamento.html')
+    
+def pedidos_orcamentos(request):
+    return render(request, 'pages/pedidos_orcamentos.html')

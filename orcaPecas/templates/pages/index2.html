@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orça Peças</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <header>
+      <img src="{% static 'images/logoOrcaPecas.PNG' %}" alt="Logo" />
+      <span class="user-name">{{ user }}</span>
+    </header>
+    <main>
+      <div class="img-container">
+        <img src="{% static 'images/logoOrcaPecas.PNG' %}" alt="Logo" />
+      </div>
+      <div class="nav-container">
+        <a class="nav-link" href="{% url 'pedidos-orcamentos' %}"
+          >A Orçar</a
+        >
+        <a class="nav-link" href="#">Orçados</a>
+        <a class="nav-link" href="#">A imprimir</a>
+        <a class="nav-link" href="#">Devolver</a>
+        <a class="nav-link" href="#">Finalizados</a>
+      </div>
+    </main>
+  </body>
+</html>
