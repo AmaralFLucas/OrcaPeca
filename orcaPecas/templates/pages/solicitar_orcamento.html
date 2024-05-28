@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/solicitar_orcamento.css' %}" />
+    <script src="{% static 'scripts/adicionar_pecas.js' %}" defer></script>
     <title>Orça Peças - Pedir Orçamento</title>
   </head>
   <body>
@@ -20,58 +21,72 @@
           <a href="{% url 'index' %}">Início</a> > <span>Pedir Orçamento</span>
         </div>
       </div>
-      <form  method="POST"> {% csrf_token %}
-      <div class="form-container">
-        <h2>Pedido</h2>
-        <div class="form-section">
-          <label for="cliente">Cliente</label>
-          <input type="text" name="cliente" id="cliente" />
-          <label for="modelo">Modelo do Carro</label>
-          <input type="text" name="modelo" id="modelo" />
-          <label for="placa">Placa</label>
-          <input type="text" name="placa" id="placa" />
-        </div>
-        <div class="form-section oficina">
-          <label for="oficina">Oficina de Entrega</label>
-          <input type="text" name="oficina" id="oficina" />
-          <label for="endereco">Endereço da Oficina</label>
-          <input type="text" name="endereco" id="endereco" />
-        </div>
-        <div class="form-section">
-          <label for="sinistro">Sinistro</label>
-          <textarea name="sinistro" id="sinistro" cols="30" rows="5"></textarea>
-        </div>
-        <div class="form-section oficina">
-          <label for="peca">Peça</label>
-          <input type="text" name="peca" id="peca" />
-          <label for="quantidade">Quantidade</label>
-          <div class="quantity">
-            <input
-              type="number"
-              name="quantidade"
-              id="quantidade"
-              value="1"
-              min="1"
-            />
-            <button type="button" class="btn-add">Adicionar</button>
+      <form id="orcamento-form" method="POST">
+        {% csrf_token %}
+        <div class="form-container">
+          <h2>Pedido</h2>
+          <div class="form-section">
+            <label for="cliente">Cliente</label>
+            <input type="text" name="cliente" id="cliente" />
+            <label for="modelo">Modelo do Carro</label>
+            <input type="text" name="modelo" id="modelo" />
+            <label for="placa">Placa</label>
+            <input type="text" name="placa" id="placa" />
+          </div>
+          <div class="form-section oficina">
+            <label for="oficina">Oficina de Entrega</label>
+            <input type="text" name="oficina" id="oficina" />
+            <label for="endereco">Endereço da Oficina</label>
+            <input type="text" name="endereco" id="endereco" />
+          </div>
+          <div class="form-section">
+            <label for="sinistro">Sinistro</label>
+            <textarea
+              name="sinistro"
+              id="sinistro"
+              cols="30"
+              rows="5"
+            ></textarea>
+          </div>
+          <div class="form-section oficina">
+            <label for="peca">Peça</label>
+            <input type="text" name="peca" id="peca" />
+            <label for="quantidade">Quantidade</label>
+            <div class="quantity">
+              <input
+                type="number"
+                name="quantidade"
+                id="quantidade"
+                value="1"
+                min="1"
+              />
+              <button type="button" class="btn-add">Adicionar</button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="table">
-        <table>
-          Teste
-        </table>
-      </div>
-      <div class="buttons">
-        <button
-          type="button"
-          class="btn-back"
-          onclick="history.back(), preventDefault()"
-        >
-          Voltar
-        </button>
-        <button type="submit" class="btn-save">Salvar</button>
-      </div>
+        <div class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Peça</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody id="itemsBody">
+              <!-- Itens adicionados aparecerão aqui -->
+            </tbody>
+          </table>
+        </div>
+        <div class="buttons">
+          <button
+            type="button"
+            class="btn-back"
+            onclick="history.back(); return false;"
+          >
+            Voltar
+          </button>
+          <button type="submit" class="btn-save">Salvar</button>
+        </div>
       </form>
     </main>
   </body>

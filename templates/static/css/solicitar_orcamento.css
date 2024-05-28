@@ -96,3 +96,40 @@ main {
   border-radius: 15px;
   padding: 5px 20px;
 }
+
+.table {
+  margin-top: 20px;
+  overflow-x: auto;
+  max-height: 400px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #ccc;
+  color: #0074d9;
+  font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
