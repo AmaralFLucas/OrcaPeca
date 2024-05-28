@@ -20,6 +20,7 @@
           <a href="{% url 'index' %}">Início</a> > <span>Pedir Orçamento</span>
         </div>
       </div>
+      <form  method="POST"> {% csrf_token %}
       <div class="form-container">
         <h2>Pedido</h2>
         <div class="form-section">
@@ -71,6 +72,7 @@
         </button>
         <button type="submit" class="btn-save">Salvar</button>
       </div>
+      </form>
     </main>
   </body>
 </html>
