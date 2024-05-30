@@ -1,3 +1,5 @@
+var listItens = []
+
 document.querySelector(".btn-add").addEventListener("click", function () {
   var tbody = document.getElementById("itemsBody");
 
@@ -17,5 +19,9 @@ document.querySelector(".btn-add").addEventListener("click", function () {
 
   tbody.appendChild(newRow);
 
-  document.getElementById("peca").value = "";
+  document.getElementById("peca");
+
+  listItens.push({"peca":pecaValue, "quantidade":quantidadeValue})
+  document.getElementById("itens").value = JSON.stringify(listItens);
+  console.log(JSON.stringify(listItens));
 });

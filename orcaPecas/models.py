@@ -6,7 +6,8 @@ from django.contrib.auth.models import User
 #     quantidade = models.PositiveIntegerField()
 
 class Orcamento(models.Model):
-    cliente = models.ForeignKey(User, on_delete=models.CASCADE)
+    criador = models.ForeignKey(User, on_delete=models.CASCADE)
+    nome = models.CharField(max_length=100, default='')
     modelo = models.CharField(max_length=100)
     data_criacao = models.DateTimeField(auto_now_add=True)
     oficina_entrega_nome = models.CharField(max_length=100)
@@ -16,7 +17,11 @@ class Orcamento(models.Model):
     comentarios_fornecedor = models.TextField(blank=True, null=True)
     prazo_entrega = models.DateField(blank=True, null=True)
     valor_total = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    itens_orcamento = models.JSONField(default=list)
+    itens_orcamento = models.TextField()
+
+
+    def __str__(self):
+        return self.nome
     
 # class Pedidos(models.Model):
 #     cliente = models.ForeignKey(User, on_delete=models.CASCADE)

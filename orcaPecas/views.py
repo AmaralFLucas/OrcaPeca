@@ -12,28 +12,30 @@ def index(request):
 
 def solicitar_orcamento(request):
     if request.method == "POST":
-        cliente = request.user.id
-        # nome = request.POST['nome']
+        criador = request.user.id
+        nome = request.POST['cliente']
         modelo = request.POST['modelo']
         sinistro = request.POST['sinistro']
         oficina = request.POST['oficina']
         endereco = request.POST['endereco']
         placa = request.POST['placa']
         quantidade = request.POST['quantidade']
-        peca = request.POST['peca']
+        peca = request.POST['itens']
+        print(peca)
         # if int(quantidade) > 0:
         #     em_estoque = True
         data_criacao = datetime.now()
         # itens_orcamento = request.POST['peca', 'quantidade'].json()
 
         Orcamento.objects.create(
-            cliente_id=cliente,
+            criador_id=criador,
+            nome=nome,
             modelo=modelo,
             comentarios_cliente=sinistro,
             oficina_entrega_nome=oficina,
             oficina_entrega_endereco=endereco,
             # placa=placa,
-            itens_orcamento={"peca":peca, "quantidade":quantidade},
+            itens_orcamento=peca,
             data_criacao=data_criacao
         )
 
