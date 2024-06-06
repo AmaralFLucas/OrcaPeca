@@ -17,7 +17,7 @@ class Orcamento(models.Model):
     comentarios_fornecedor = models.TextField(blank=True, null=True)
     prazo_entrega = models.DateField(blank=True, null=True)
     valor_total = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    itens_orcamento = models.TextField()
+    itens_orcamento = models.JSONField(default=list)
 
 
     def __str__(self):

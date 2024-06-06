@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Orçamento</title>
+</head>
+<body>
+    <h1>Detalhes do Orçamento</h1>
+    {% for orcamento in orcamentos %}
+    <p><strong>Nome do Cliente:</strong> {{ orcamento.nome }}</p>
+    <p><strong>Modelo:</strong> {{ orcamento.modelo }}</p>
+    <p><strong>Sinistro:</strong> {{ orcamento.comentarios_cliente }}</p>
+    <p><strong>Oficina:</strong> {{ orcamento.oficina_entrega_nome }}</p>
+    <p><strong>Endereço:</strong> {{ orcamento.oficina_entrega_endereco }}</p>
+    <p><strong>Data de Criação:</strong> {{ orcamento.data_criacao }}</p>
+    {% endfor %}
+    <h2>Itens do Orçamento</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Peça</th>
+                <th>Quantidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in orcamentos.itens_orcamento %}
+            <tr>
+                <td>{{ item.peca }}</td>
+                <td>{{ item.quantidade }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+</body>
+</html>

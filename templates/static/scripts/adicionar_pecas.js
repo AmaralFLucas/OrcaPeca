@@ -23,5 +23,9 @@ document.querySelector(".btn-add").addEventListener("click", function () {
 
   listItens.push({"peca":pecaValue, "quantidade":quantidadeValue})
   document.getElementById("itens").value = JSON.stringify(listItens);
+
+  document.getElementById("peca").value = '';
+  document.getElementById("quantidade").value = '';
+
   console.log(JSON.stringify(listItens));
 });
