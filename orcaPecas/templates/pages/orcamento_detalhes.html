@@ -14,7 +14,7 @@
     <p><strong>Oficina:</strong> {{ orcamento.oficina_entrega_nome }}</p>
     <p><strong>Endereço:</strong> {{ orcamento.oficina_entrega_endereco }}</p>
     <p><strong>Data de Criação:</strong> {{ orcamento.data_criacao }}</p>
-    {% endfor %}
+    
     <h2>Itens do Orçamento</h2>
     <table border="1">
         <thead>
@@ -24,15 +24,15 @@
             </tr>
         </thead>
         <tbody>
-            {% for item in orcamentos.itens_orcamento %}
+            {% for item in itens %}
             <tr>
-                <td>{{ item.peca }}</td>
-                <td>{{ item.quantidade }}</td>
+                <td>{{item.peca}}</td>
+                <td>{{ item.quantidade}}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-
+    {% endfor %}
 
 </body>
 </html>

@@ -52,6 +52,10 @@ def solicitar_orcamento(request):
     
 def exibir_orcamento(request):
     orcamentos = Orcamento.objects.all()
-    for item in orcamentos:
-        print(item.itens_orcamento)
-    return render(request, 'pages/orcamento_detalhes.html', {'orcamentos': orcamentos})
+    itens = []
+    for i in orcamentos:
+        print(type(i.itens_orcamento))
+        itens.append(i.itens_orcamento)
+    # for item in orcamentos:
+    #     print(item.itens_orcamento)
+    return render(request, 'pages/orcamento_detalhes.html', {'orcamentos': orcamentos, 'itens':itens[0]})
