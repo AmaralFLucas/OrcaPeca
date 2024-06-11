@@ -3,12 +3,15 @@ from datetime import datetime
 from django.shortcuts import render, redirect
 from .models import Orcamento
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+
+@login_required(redirect_field_name='login')
 
 def index(request):
-    if (request.user.is_superuser):
-        return render(request, 'pages/index.html')
-    elif (request.user.is_staff):
+    if (request.user.is_staff):
         return render(request, 'pages/index2.html')
+    elif (request.user.is_staff == False): 
+        return render(request, 'pages/index.html')
 
 def solicitar_orcamento(request):
     if request.method == "POST":
