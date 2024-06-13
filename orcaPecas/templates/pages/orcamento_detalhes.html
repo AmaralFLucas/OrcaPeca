@@ -1,8 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style_orcamento.css' %}" />
     <title>Detalhes do Orçamento</title>
 </head>
 <body>
@@ -24,15 +26,56 @@
             </tr>
         </thead>
         <tbody>
+            {% for item in orcamento.itens_orcamento %}
+                <tr>
+                    <td>{{ item.peca }}</td>
+                    <td>{{ item.quantidade }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endfor %}
+
+    {%comment%}
+    <table>
+
+        {% if orcamentos %}
+        <thead>
+          <th>Cliente</th>
+          <th>Modelo</th>
+          <th>Sinistro</th>
+          <th>Oficina</th>
+          <th>Endereço</th>
+          <th>Data de Criação</th>
+          <th>Peça</th>
+          <th>Quantidade</th>
+        </thead>
+        {% else %}
+          <h1>Nenhum orçamento Cadastrado.</h1>
+        {% endif %}
+
+
+        <tbody>
+            {% for orcamento in orcamentos %}
+          <tr>
+            <td>
+                <a href="{% url 'orcamento' orcamento.id %}">{{orcamento.nome}}</a>
+            </td>
+            <td>{{orcamento.modelo}}</td>
+            <td>{{orcamento.comentarios_cliente}}</td>
+            <td>{{orcamento.oficina_entrega_nome}}</td>
+            <td>{{orcamento.oficina_entrega_endereco}}</td>
+            <td>{{orcamento.data_criacao}}</td>
             {% for item in itens %}
             <tr>
                 <td>{{item.peca}}</td>
                 <td>{{ item.quantidade}}</td>
             </tr>
             {% endfor %}
+          </tr>
+          {% endfor %}
         </tbody>
-    </table>
-    {% endfor %}
-
+      </table>
+      {%endcomment%}
 </body>
 </html>
