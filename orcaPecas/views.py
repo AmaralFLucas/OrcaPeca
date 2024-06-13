@@ -55,7 +55,4 @@ def solicitar_orcamento(request):
     
 def exibir_orcamento(request):
     orcamentos = Orcamento.objects.all()
-    itens = []
-    for orcamento in orcamentos:
-        itens.extend(orcamento.itens_orcamento)  # Adiciona os itens de cada orçamento à lista itens
-    return render(request, 'pages/orcamento_detalhes.html', {'orcamentos': orcamentos, 'itens': itens})
+    return render(request, 'pages/orcamento_detalhes.html', {'orcamentos': orcamentos})
