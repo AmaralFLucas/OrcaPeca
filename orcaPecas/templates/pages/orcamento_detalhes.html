@@ -9,34 +9,7 @@
 </head>
 <body>
     <h1>Detalhes do Orçamento</h1>
-    {% for orcamento in orcamentos %}
-    <p><strong>Nome do Cliente:</strong> {{ orcamento.nome }}</p>
-    <p><strong>Modelo:</strong> {{ orcamento.modelo }}</p>
-    <p><strong>Sinistro:</strong> {{ orcamento.comentarios_cliente }}</p>
-    <p><strong>Oficina:</strong> {{ orcamento.oficina_entrega_nome }}</p>
-    <p><strong>Endereço:</strong> {{ orcamento.oficina_entrega_endereco }}</p>
-    <p><strong>Data de Criação:</strong> {{ orcamento.data_criacao }}</p>
     
-    <h2>Itens do Orçamento</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Peça</th>
-                <th>Quantidade</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in orcamento.itens_orcamento %}
-                <tr>
-                    <td>{{ item.peca }}</td>
-                    <td>{{ item.quantidade }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    {% endfor %}
-
-    {%comment%}
     <table>
 
         {% if orcamentos %}
@@ -46,7 +19,6 @@
           <th>Sinistro</th>
           <th>Oficina</th>
           <th>Endereço</th>
-          <th>Data de Criação</th>
           <th>Peça</th>
           <th>Quantidade</th>
         </thead>
@@ -59,23 +31,28 @@
             {% for orcamento in orcamentos %}
           <tr>
             <td>
-                <a href="{% url 'orcamento' orcamento.id %}">{{orcamento.nome}}</a>
+                {{orcamento.nome}}
             </td>
             <td>{{orcamento.modelo}}</td>
             <td>{{orcamento.comentarios_cliente}}</td>
             <td>{{orcamento.oficina_entrega_nome}}</td>
             <td>{{orcamento.oficina_entrega_endereco}}</td>
-            <td>{{orcamento.data_criacao}}</td>
-            {% for item in itens %}
-            <tr>
-                <td>{{item.peca}}</td>
-                <td>{{ item.quantidade}}</td>
-            </tr>
-            {% endfor %}
+
+             <td>
+                    {% for item in orcamento.itens_orcamento %}
+                        {{item.peca}}<br>
+                    {% endfor %}
+                </td>
+             <td>
+                    {% for item in orcamento.itens_orcamento %}
+                        {{item.quantidade}}<br>
+                    {% endfor %}
+                </td>
+
           </tr>
           {% endfor %}
         </tbody>
       </table>
-      {%endcomment%}
+      
 </body>
 </html>
