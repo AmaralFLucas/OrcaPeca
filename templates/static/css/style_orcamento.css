@@ -6,49 +6,93 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-main{
-    padding: 20px 50px;
-}
-
-table{
-    margin: 10px 0;
-    width: 100%;
-    text-align: center;
-    border-collapse: collapse;
-    border-radius: 30px 30px 0 0;
-    overflow: hidden;
-}
-
-main > a{
-    padding: 6px 2%;
-    background-color: rgba(19, 10, 192, 0.694);
-    border-radius: 12px;
-    color: white;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
-}
-
-th{
-    background-color: rgba(19, 10, 192, 0.694);
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-bottom: 2px solid #add8e6;
     padding: 10px;
-    color: white;
-}
-
-td{
-    padding: 10px;
-}
-
-tr:nth-child(even){
-    background-color: rgba(128, 128, 128, 0.251);
-}
-tbody > tr:hover{
-    background-color: rgba(128, 128, 128, 0.524);
-    cursor: pointer;
-}
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
   }
   
+  header img {
+    max-height: 80px;
+    padding-bottom: 5px;
+    border-radius: 15px;
+  }
+  
+  .user-name {
+    color: #004080;
+  }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 80%;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    color: #333;
+}
+.breadcrumb {
+    color: #999;
+    margin-bottom: 20px;
+}
+.table-container {
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+th {
+    background-color: #e0e7ff;
+}
+.pagination {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.pagination span {
+    margin: 0 5px;
+    cursor: pointer;
+}
+.pagination input {
+    width: 30px;
+    text-align: center;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+button {
+    text-align: center;
+    margin-top: 20px;
+}
+  
+button{
+    padding: 10px 20px;
+    background-color: #0074d9;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}

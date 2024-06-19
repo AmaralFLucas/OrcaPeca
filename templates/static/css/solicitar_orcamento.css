@@ -9,6 +9,35 @@ main {
   padding: 20px;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border-bottom: 2px solid #add8e6;
+  padding: 10px;
+}
+
+header img {
+  max-height: 80px;
+  padding-bottom: 5px;
+  border-radius: 15px;
+}
+
+body{
+  background-color: #f0f0f0;
+}
+
+.container {
+  width: 80%;
+  max-height: 750px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+}
+
 .page-title-container {
   width: 100%;
   margin-bottom: 20px;
@@ -38,7 +67,7 @@ main {
 }
 
 .form-container {
-  width: 900px;
+  width: 100%;
   overflow-x: auto;
   margin-bottom: 20px;
 }
@@ -100,7 +129,7 @@ main {
 .table {
   margin-top: 20px;
   overflow-x: auto;
-  max-height: 400px;
+  max-height: 200px;
 }
 
 table {

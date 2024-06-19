@@ -8,8 +8,14 @@
     <title>Detalhes do Orçamento</title>
 </head>
 <body>
-    <h1>Detalhes do Orçamento</h1>
-    
+  <header>
+    <img src="{% static 'images/logoOrcaPecas.PNG' %}" alt="Logo" />
+    <span class="user-name">{{ user }}</span>
+  </header>
+  <div class="container">
+    <h1>Pedidos Aguardando Orçamento</h1>
+    <div class="breadcrumb">Início > Pedidos Aguardando Orçamento</div>
+    <div class="table-container">
     <table>
 
         {% if orcamentos %}
@@ -53,6 +59,19 @@
           {% endfor %}
         </tbody>
       </table>
-      
+    </div>
+    <div class="pagination">
+        <span>&lt;&lt;</span>
+        <input type="text" value="1">
+        <span>de</span>
+        <span>1</span>
+        <span>&gt;&gt;</span>
+    </div>
+    <button
+            type="button"
+            class="btn-back"
+            onclick="history.back(); return false;"
+          >Voltar</button>
+  </div>    
 </body>
 </html>
