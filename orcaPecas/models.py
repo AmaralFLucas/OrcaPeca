@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 class Orcamento(models.Model):
     criador = models.ForeignKey(User, on_delete=models.CASCADE)
-    nome = models.CharField(max_length=100, default='')
+    nome = models.CharField(max_length=100)
     modelo = models.CharField(max_length=100)
     placa = models.CharField(max_length=100)
     data_criacao = models.DateTimeField(auto_now_add=True)
