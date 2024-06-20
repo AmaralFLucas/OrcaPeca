@@ -55,3 +55,36 @@ main {
   text-decoration: none;
   border-radius: 5px;
 }
+
+.devolucao-cliente {
+  display: inline-block;
+  margin: 5px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #a4a8ac;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.devolucao-fornecedor {
+  display: inline-block;
+  margin: 5px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #a4a8ac;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.orcados-fornecedor {
+  display: inline-block;
+  margin: 5px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #a4a8ac;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}

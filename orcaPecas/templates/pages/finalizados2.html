@@ -15,9 +15,9 @@
     <main>
       <div class="container">
       <div class="page-title-container">
-        <h1 class="page-title">Aprovar Orçamento</h1>
+        <h1 class="page-title">Orçamento Finalizado</h1>
         <div class="breadcrumb">
-          <a href="{% url 'orcados' %}">Orçamentos Respondidos</a> > <span>Aprovar Orçamento</span>
+          <a href="{% url 'finalizados' %}">Orçamentos Finalizados</a> > <span>Orçamento Finalizado</span>
         </div>
       </div>
       <form id="orcamento-form" method="POST" action="{% url 'status_orcamento' detalhe.id %}">
@@ -76,13 +76,11 @@
             <span>{{detalhe.valor_total}}</span>
         </div>
         <div class="buttons">
-            <a href="{% url 'orcados' %}"><button
+            <a href="{% url 'finalizados' %}"><button
                 type="button"
                 class="btn-back"
                 
               >Voltar</button></a>
-          <button type="submit" name="action" value="cancelar" class="btn-delete">Cancelar Orçamento</button>
-          <button type="submit" name="action" value="aprovar" class="btn-save">Aprovar Orçamento</button>
         </div>
       </form>
     </div>

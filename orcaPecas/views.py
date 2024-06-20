@@ -25,7 +25,6 @@ def solicitar_orcamento(request):
         quantidade = request.POST['quantidade']
         peca = request.POST['itens']
         
-        # Verifica se peca não é None e faz o parsing JSON
         if peca:
             try:
                 itens_orcamento = json.loads(peca)
@@ -64,12 +63,13 @@ def orcamento(request, id):
         prazo = request.POST['prazo_entrega']
         valor = request.POST['valor_total']
         status = "aguardando_resposta_cliente"
-        Orcamento.objects.update(
-            comentarios_fornecedor=resposta,
-            prazo_entrega=prazo,
-            valor_total=valor,
-            status=status,
-        )
+        
+        detalhes.comentarios_fornecedor = resposta
+        detalhes.prazo_entrega = prazo
+        detalhes.valor_total = valor
+        detalhes.status = status
+        detalhes.save()
+
         return exibir_orcamento(request)
     else:
         return render(request, 'pages/orcamento.html', {'detalhe': detalhes})
@@ -81,3 +81,28 @@ def orcados(request):
 def resposta_orcados(request, id):
     detalhes = Orcamento.objects.get(id=id)
     return render(request, 'pages/resposta_orcados.html', {'detalhe': detalhes})
+
+def status_orcamento(request, id):
+    orcamento = get_object_or_404(Orcamento, id=id)
+    
+    if request.method == "POST":
+        action = request.POST.get('action')
+        
+        if action == 'aprovar':
+            orcamento.status = 'Aprovado'
+        elif action == 'cancelar':
+            orcamento.delete()
+            return redirect('index')
+        
+        orcamento.save()
+        return redirect('orcados')
+    
+    return render(request, 'pages/resposta_orcados.html', {'detalhe': orcamento})
+
+def orcamentos_finalizados(request):
+    orcamentos = Orcamento.objects.filter(status='Aprovado')
+    return render(request, 'pages/finalizados.html', {'orcamentos': orcamentos})
+
+def finalizados_info(request, id):
+    detalhes = Orcamento.objects.get(id=id)
+    return render(request, 'pages/finalizados2.html', {'detalhe': detalhes})

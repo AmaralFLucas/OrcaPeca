@@ -13,7 +13,7 @@ class Orcamento(models.Model):
     data_criacao = models.DateTimeField(auto_now_add=True)
     oficina_entrega_nome = models.CharField(max_length=100)
     oficina_entrega_endereco = models.TextField()
-    status = models.CharField(max_length=20, default='Pendente')
+    status = models.CharField(max_length=27, default='Pendente')
     comentarios_cliente = models.TextField(blank=True, null=True)
     comentarios_fornecedor = models.TextField(blank=True, null=True)
     prazo_entrega = models.DateField(blank=True, null=True)
