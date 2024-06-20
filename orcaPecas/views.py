@@ -43,7 +43,7 @@ def solicitar_orcamento(request):
             comentarios_cliente=sinistro,
             oficina_entrega_nome=oficina,
             oficina_entrega_endereco=endereco,
-            # placa=placa,
+            placa=placa,
             itens_orcamento=itens_orcamento,
             data_criacao=data_criacao
         )
@@ -54,5 +54,30 @@ def solicitar_orcamento(request):
         return render(request, 'pages/solicitar_orcamento.html')
     
 def exibir_orcamento(request):
-    orcamentos = Orcamento.objects.all()
+    orcamentos = Orcamento.objects.filter(status='Pendente')
     return render(request, 'pages/orcamento_detalhes.html', {'orcamentos': orcamentos})
+
+def orcamento(request, id):
+    detalhes = Orcamento.objects.get(id=id)
+    if request.method == "POST":
+        resposta = request.POST['resposta']
+        prazo = request.POST['prazo_entrega']
+        valor = request.POST['valor_total']
+        status = "aguardando_resposta_cliente"
+        Orcamento.objects.update(
+            comentarios_fornecedor=resposta,
+            prazo_entrega=prazo,
+            valor_total=valor,
+            status=status,
+        )
+        return exibir_orcamento(request)
+    else:
+        return render(request, 'pages/orcamento.html', {'detalhe': detalhes})
+    
+def orcados(request):
+    orcamentos = Orcamento.objects.filter(status='aguardando_resposta_cliente')
+    return render(request, 'pages/orcados.html', {'orcamentos': orcamentos})
+
+def resposta_orcados(request, id):
+    detalhes = Orcamento.objects.get(id=id)
+    return render(request, 'pages/resposta_orcados.html', {'detalhe': detalhes})

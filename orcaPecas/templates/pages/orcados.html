@@ -13,8 +13,8 @@
     <span class="user-name">{{ user }}</span>
   </header>
   <div class="container">
-    <h1>Pedidos Aguardando Orçamento</h1>
-    <div class="breadcrumb">Início > Pedidos Aguardando Orçamento</div>
+    <h1>Orçamentos Respondidos</h1>
+    <div class="breadcrumb">Início > Orçamentos Respondidos</div>
     <div class="table-container">
     <table>
         <thead>
@@ -30,7 +30,7 @@
             {% for orcamento in orcamentos %}
           <tr>
             <td>
-                <a href="{%url 'orcamento' orcamento.id %}">{{orcamento.nome}}</a>
+                <a href="{%url 'resposta_orcados' orcamento.id %}">{{orcamento.nome}}</a>
             </td>
             <td>{{orcamento.modelo}}</td>
             <td>{{orcamento.comentarios_cliente}}</td>
@@ -60,7 +60,7 @@
         <span>1</span>
         <span>&gt;&gt;</span>
     </div>
-    <a href="{% url 'index2' %}"><button
+    <a href="{% url 'index' %}"><button
             type="button"
             class="btn-back"
             

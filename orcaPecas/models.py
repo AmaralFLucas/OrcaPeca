@@ -9,6 +9,7 @@ class Orcamento(models.Model):
     criador = models.ForeignKey(User, on_delete=models.CASCADE)
     nome = models.CharField(max_length=100, default='')
     modelo = models.CharField(max_length=100)
+    placa = models.CharField(max_length=100)
     data_criacao = models.DateTimeField(auto_now_add=True)
     oficina_entrega_nome = models.CharField(max_length=100)
     oficina_entrega_endereco = models.TextField()
