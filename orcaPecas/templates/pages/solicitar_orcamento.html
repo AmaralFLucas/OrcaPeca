@@ -25,19 +25,19 @@
         {% csrf_token %}
         <div class="form-container">
           <h2>Pedido</h2>
-          <div class="form-section">
+          <div class="form-section" >
             <label for="cliente">Cliente</label>
-            <input type="text" name="cliente" id="cliente" />
+            <input type="text" name="cliente" id="cliente" required/>
             <label for="modelo">Modelo do Carro</label>
-            <input type="text" name="modelo" id="modelo" />
+            <input type="text" name="modelo" id="modelo" required/>
             <label for="placa">Placa</label>
-            <input type="text" name="placa" id="placa" />
+            <input type="text" name="placa" id="placa" required/>
           </div>
           <div class="form-section oficina">
             <label for="oficina">Oficina de Entrega</label>
-            <input type="text" name="oficina" id="oficina" />
+            <input type="text" name="oficina" id="oficina" required/>
             <label for="endereco">Endereço da Oficina</label>
-            <input type="text" name="endereco" id="endereco" />
+            <input type="text" name="endereco" id="endereco" required/>
           </div>
           <div class="form-section">
             <label for="sinistro">Sinistro</label>
@@ -46,19 +46,21 @@
               id="sinistro"
               cols="30"
               rows="5"
+              required
             ></textarea>
           </div>
           <div class="form-section oficina">
             <label for="peca">Peça</label>
-            <input type="text" name="peca" id="peca" />
+            <input type="text" name="peca" id="peca" required/>
             <label for="quantidade">Quantidade</label>
             <div class="quantity">
               <input
                 type="number"
                 name="quantidade"
                 id="quantidade"
+                required
               />
-              <input name="itens" type="hidden" id="itens">
+              <input name="itens" type="hidden" id="itens" required>
               <button type="button" class="btn-add">Adicionar</button>
             </div>
           </div>
