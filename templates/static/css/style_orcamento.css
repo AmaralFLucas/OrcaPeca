@@ -101,6 +101,7 @@ header.header {
   .user-name {
     margin-right: 15px;
     font-weight: bold;
+    color: #004080;
   }
   
   .logout-button {

@@ -38,14 +38,22 @@
             <td>{{orcamento.oficina_entrega_endereco}}</td>
 
              <td>
-                    {% for item in orcamento.itens_orcamento %}
-                        {{item.peca}}<br>
-                    {% endfor %}
-                </td>
-             <td>
-                    {% for item in orcamento.itens_orcamento %}
-                        {{item.quantidade}}<br>
-                    {% endfor %}
+              <table class="sub-table">
+                {% for item in orcamento.itens_orcamento %}
+                <tr>
+                    <td>{{ item.peca }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </td>
+        <td>
+            <table class="sub-table">
+                {% for item in orcamento.itens_orcamento %}
+                <tr>
+                    <td>{{ item.quantidade }}</td>
+                </tr>
+                {% endfor %}
+            </table>
                 </td>
 
           </tr>
