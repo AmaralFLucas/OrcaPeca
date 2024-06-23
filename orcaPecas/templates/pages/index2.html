@@ -10,17 +10,17 @@
   <body>
     <header>
       <img src="{% static 'images/logoOrcaPecas.PNG' %}" alt="Logo" />
-      <span class="user-name">{{ user }}</span>
-      <a href="{% url 'logout' %}">Sair</a>
+      <div class="nav-right">
+        <span class="user-name">{{ user }}</span>
+        <a href="{% url 'logout' %}">Sair</a>
+      </div>
     </header>
     <main>
       <div class="img-container">
         <img src="{% static 'images/logoOrcaPecas.PNG' %}" alt="Logo" />
       </div>
       <div class="nav-container">
-        <a class="nav-link" href="{% url 'orcamento_detalhes' %}"
-          >A Orçar</a
-        >
+        <a class="nav-link" href="{% url 'orcamento_detalhes' %}">A Orçar</a>
         <a class="orcados-fornecedor" href="#">Orçados</a>
         <a class="devolucao-fornecedor" href="#">Devoluções</a>
         <a class="nav-link" href="{% url 'finalizados' %}">Finalizados</a>

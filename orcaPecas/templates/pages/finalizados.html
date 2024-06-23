@@ -18,36 +18,44 @@
     <div class="table-container">
     <table>
         <thead>
-          <th>Cliente</th>
-          <th>Modelo</th>
-          <th>Sinistro</th>
-          <th>Oficina</th>
-          <th>Endereço</th>
-          <th>Peça</th>
-          <th>Quantidade</th>
+          <tr>
+            <th>Cliente</th>
+            <th>Modelo</th>
+            <th>Sinistro</th>
+            <th>Oficina</th>
+            <th>Endereço</th>
+            <th>Peça</th>
+            <th>Quantidade</th>
+          </tr>
         </thead>
         <tbody>
             {% for orcamento in orcamentos %}
           <tr>
             <td>
-                <a href="{%url 'finalizados2' orcamento.id %}">{{orcamento.nome}}</a>
+                <a href="{%url 'finalizados2' orcamento.id %}">{{ orcamento.nome }}</a>
             </td>
-            <td>{{orcamento.modelo}}</td>
-            <td>{{orcamento.comentarios_cliente}}</td>
-            <td>{{orcamento.oficina_entrega_nome}}</td>
-            <td>{{orcamento.oficina_entrega_endereco}}</td>
-            
-             <td>
+            <td>{{ orcamento.modelo }}</td>
+            <td>{{ orcamento.comentarios_cliente }}</td>
+            <td>{{ orcamento.oficina_entrega_nome }}</td>
+            <td>{{ orcamento.oficina_entrega_endereco }}</td>
+            <td>
+                <table class="sub-table">
                     {% for item in orcamento.itens_orcamento %}
-                        {{item.peca}}<br>
+                    <tr>
+                        <td>{{ item.peca }}</td>
+                    </tr>
                     {% endfor %}
-                </td>
-             <td>
+                </table>
+            </td>
+            <td>
+                <table class="sub-table">
                     {% for item in orcamento.itens_orcamento %}
-                        {{item.quantidade}}<br>
+                    <tr>
+                        <td>{{ item.quantidade }}</td>
+                    </tr>
                     {% endfor %}
-                </td>
-
+                </table>
+            </td>
           </tr>
           {% endfor %}
         </tbody>
@@ -60,11 +68,7 @@
         <span>1</span>
         <span>&gt;&gt;</span>
     </div>
-    <a href="{% url 'index' %}"><button
-            type="button"
-            class="btn-back"
-            
-          >Voltar</button></a>
+    <a href="{% url 'index' %}"><button type="button" class="btn-back">Voltar</button></a>
   </div>    
 </body>
 </html>

@@ -10,8 +10,10 @@
   <body>
     <header>
       <img src="{% static 'images/logoOrcaPecas.PNG' %}" alt="Logo" />
-      <span class="user-name">{{ user }}</span>
-      <a href="{% url 'logout' %}">Sair</a>
+      <div class="nav-right">
+        <span class="user-name">{{ user }}</span>
+        <a class="logout-button" href="{% url 'logout' %}">Sair</a>
+      </div>
     </header>
     <main>
       <div class="img-container">

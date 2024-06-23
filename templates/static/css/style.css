@@ -88,3 +88,34 @@ main {
   text-decoration: none;
   border-radius: 5px;
 }
+header.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f8f8; /* Ajuste conforme necessário */
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.user-name {
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.logout-button {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+}
+
+.logout-button:hover {
+  background-color: #e1e1e1;
+}
