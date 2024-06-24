@@ -45,6 +45,7 @@ span{
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: fixed;
+    top: 200px;
   }
   
   .page-title-container {
@@ -172,3 +173,8 @@ span{
     background-color: #fff;
   }
   
+  .user-name {
+    margin-right: 15px;
+    font-weight: bold;
+    color: #004080;
+  }
