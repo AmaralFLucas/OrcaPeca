@@ -12,6 +12,7 @@ header {
   align-items: center;
   border-bottom: 2px solid #add8e6;
   padding: 10px;
+  margin-bottom: 200px;
 }
 
 header img {
@@ -20,22 +21,17 @@ header img {
   border-radius: 15px;
 }
 
-
-
 main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
 }
 
 .img-container{
   max-height: 200px;
   border-radius: 15px;
   margin-bottom: 20px;
-  position: fixed;
-  top: 300px;
 }
 
 .img-container img{
@@ -49,8 +45,6 @@ main {
   display: flex;
   justify-content: space-around;
   border-top: 2px solid #0074d9;
-  position: fixed;
-  top: 500px;
 }
 
 .nav-link {
@@ -64,38 +58,6 @@ main {
   border-radius: 5px;
 }
 
-.devolucao-cliente {
-  display: inline-block;
-  margin: 5px;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #a4a8ac;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-.devolucao-fornecedor {
-  display: inline-block;
-  margin: 5px;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #a4a8ac;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-.orcados-fornecedor {
-  display: inline-block;
-  margin: 5px;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #a4a8ac;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-}
 header.header {
   display: flex;
   justify-content: space-between;
@@ -127,4 +89,15 @@ header.header {
 
 .logout-button:hover {
   background-color: #e1e1e1;
+}
+
+.desabilitado{
+  display: inline-block;
+  margin: 5px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #a4a8ac;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
 }

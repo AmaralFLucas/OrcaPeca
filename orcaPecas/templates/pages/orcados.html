@@ -32,7 +32,7 @@
             {% for orcamento in orcamentos %}
           <tr>
             <td>
-                <a href="{% url 'finalizados2' orcamento.id %}">{{ orcamento.nome }}</a>
+                <a href="{% url 'resposta_orcados' orcamento.id %}">{{ orcamento.nome }}</a>
             </td>
             <td>{{ orcamento.modelo }}</td>
             <td>{{ orcamento.comentarios_cliente }}</td>
